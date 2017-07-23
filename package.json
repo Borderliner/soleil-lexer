@@ -2,11 +2,21 @@
   "name": "soleil-lexer",
   "version": "0.0.1",
   "description": "Soleil Language Lexer",
-  "main": "index.js",
+  "main": "src/index.js",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.7.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel src --out-dir lib",
+    "watch": "babel src --out-dir lib --watch",
+    "start": "npm run babel"
   },
   "repository": {
     "type": "git",
