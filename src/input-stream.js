@@ -1,15 +1,19 @@
 class InputStream {
   constructor(input) {
-    this.originalInput = input;
-    /** Unchangable originalInput
-     * NOTE: No need to return Object.freeze(). I just wanted to have a better
-     * programming style.
-     */
-    this.originalInput = Object.freeze(this.originalInput);
-    this.input = this.originalInput;
-    this.pos = 0;
-    this.line = 1;
-    this.col = 0;
+    if (typeof input !== 'undefined') {
+      this.originalInput = input;
+      /** Unchangable originalInput
+       * NOTE: No need to return Object.freeze(). I just wanted to have a better
+       * programming style.
+       */
+      this.originalInput = Object.freeze(this.originalInput);
+      this.input = this.originalInput;
+      this.pos = 0;
+      this.line = 1;
+      this.col = 0;
+    } else {
+      throw new Error('Please specify an input inside the constructor method.');
+    }
   }
 
   /**
@@ -52,3 +56,5 @@ class InputStream {
     throw new Error(`${message} => line: ${this.line}, column: ${this.col}`);
   }
 }
+
+export default InputStream;
